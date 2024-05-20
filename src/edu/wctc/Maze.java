@@ -9,7 +9,7 @@ public class Maze {
     private RoomFactory roomFactory;
     private Room currentRoom;
     private Player player;
-    private boolean isFinished = false;
+    // private boolean isFinished = false;
     private Map<String, Room> rooms;
 
     public Maze(Player player){
@@ -109,14 +109,14 @@ public class Maze {
         return player.getInventory();
     }
 
-    public int getPlayerScore(){
-        return player.getPlayerScore();
-    }
-
-    public void addRoom(String key, String type, String name){
-        Room room  = roomFactory.createRoom(type, name);
-        rooms.put(key, room);
-    }
+//    public int getPlayerScore(){
+//        return player.getPlayerScore();
+//    }
+//
+//    public void addRoom(String key, String type, String name){
+//        Room room  = roomFactory.createRoom(type, name);
+//        rooms.put(key, room);
+//    }
 
     public String lootCurrentRoom(Player player){
         Room currentRoom = getCurrentRoom();
@@ -130,13 +130,14 @@ public class Maze {
 
     public boolean move (char direction) {
         if (currentRoom.isValidDirection(direction)){
-            currentRoom = currentRoom.getAdjoiningRoom(direction);
-            return true;
-        }else {
-            return false;
-        }
-    }
+            Room newRoom = currentRoom.getAdjoiningRoom(direction);
+            if (newRoom != null){
+                currentRoom = newRoom;
+                return true;
+                }
+            }       
+        return false;
+    }   
 
-    
 
 }

@@ -12,13 +12,13 @@ public class Player {
         playerInventory = PlayerInventory.getInstance();
     }
 
-    public void addScore(int score){
-        this.score.addScore(score);
-    }
-
-    public void addToInventory(String item){
-        playerInventory.addItem(item);
-    }
+//    public void addScore(int score){
+//        this.score.addScore(score);
+//    }
+//
+//    public void addToInventory(String item){
+//        playerInventory.addItem(item);
+//    }
 
     public List<String> getInventory(){
         return playerInventory.getItems();
